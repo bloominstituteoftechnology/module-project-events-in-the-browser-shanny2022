@@ -1,8 +1,11 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 // 👉 TASK 1 - Understand the existing code 👈
 function moduleProject2() {
   // 👇 WORK WORK BELOW THIS LINE 👇
   let startTime = new Date().getTime() // Record start time
 
+  // eslint-disable-next-line no-unused-vars
   function getTimeElapsed() { // To be used at end of game to get elapsed time
     let currentTime = new Date().getTime()
     return currentTime - startTime
@@ -65,10 +68,41 @@ function moduleProject2() {
 
   document.addEventListener('keydown', evt => {
     // 👉 TASK 3 - Use the arrow keys to highlight a new square 👈
+    window.addEventListener('keydown', function(event) {
+      let highlightedSquare = document.querySelector('.highlighted');
+      switch(event.key) {
+        case 'ArrowUp':
+          // code to move the highlight up
+          break;
+        case 'ArrowDown':
+          // code to move the highlight down
+          break;
+        case 'ArrowLeft':
+          // code to move the highlight left
+          break;
+        case 'ArrowRight':
+          // code to move the highlight right
+          break;
+      }
+    });
 
     // 👉 TASK 4 - Use the space bar to exterminate a mosquito 👈
+    window.addEventListener('keydown', function(event) {
+      if (event.code === 'Space') {
+        let highlightedSquare = document.querySelector('.highlighted');
+        if (highlightedSquare) {
+          highlightedSquare.remove();
+        }
+      }
+    });
 
     // 👉 TASK 5 - End the game 👈
+    // Assuming the game logic is encapsulated in a function called gameLogic
+window.removeEventListener('keydown', gameLogic);
+
+// Display a game over message
+alert('Game Over!');
+
   })
   // 👆 WORK WORK ABOVE THIS LINE 👆
 }
